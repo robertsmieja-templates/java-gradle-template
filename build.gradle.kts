@@ -3,10 +3,10 @@ import org.apache.commons.lang3.SystemUtils
 plugins {
     // Apply the java-library plugin to add support for Java Library
     `java-library`
-    id("org.ajoberstar.reckon") version "0.11.0"
-    id("com.diffplug.gradle.spotless") version "3.25.0"
-    id("com.github.spotbugs") version "2.0.0"
-    id("com.google.cloud.tools.jib") version "1.7.0"
+    id("org.ajoberstar.reckon") version "0.12.0"
+    id("com.diffplug.gradle.spotless") version "4.0.1"
+    id("com.github.spotbugs") version "4.2.4"
+    id("com.google.cloud.tools.jib") version "2.3.0"
     id("com.star-zero.gradle.githook") version "1.2.0"
 }
 
@@ -57,7 +57,8 @@ reckon {
 }
 
 spotbugs {
-    effort = "max"
+    // effort = "max" does not work, revisit in a latter version of SpotBugs
+    this.setEffort("max")
 }
 
 spotless {
